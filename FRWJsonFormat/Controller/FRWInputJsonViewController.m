@@ -400,10 +400,6 @@
     }
 }
 
-- (IBAction)requestFileAction:(id)sender {
-    
-}
-
 #pragma mark - Request -
 
 - (void)requestWithUrl:(NSString *)url isPost:(BOOL)isPost parameters:(NSDictionary *)params {

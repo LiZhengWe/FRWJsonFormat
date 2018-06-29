@@ -239,9 +239,6 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="requestFileAction:" target="-2" id="V9A-sH-9kS"/>
-                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" tag="120" translatesAutoresizingMaskIntoConstraints="NO" id="up9-eP-5P1">
                         <rect key="frame" x="418" y="241" width="105" height="32"/>
