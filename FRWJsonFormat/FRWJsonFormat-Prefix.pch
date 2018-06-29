@@ -1,0 +1,27 @@
+//
+//  FRWJsonFormat-Prefix.pch
+//  FRWJsonFormat
+//
+//  Created by yiner on 2018/3/26.
+//  Copyright © 2018年 yiner. All rights reserved.
+//
+
+#ifndef FRWJsonFormat_Prefix_pch
+#define FRWJsonFormat_Prefix_pch
+
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import "ESUtils.h"
+
+
+#define FRWJsonFormatPluginPath [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"Developer/Shared/Xcode/Plug-ins/ESJsonFormat.xcplugin"]
+
+
+#define FRWUppercaseKeyWords @[@"id"]
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* FRWJsonFormat_Prefix_pch */

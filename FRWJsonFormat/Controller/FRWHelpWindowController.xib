@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FRWHelpWindowController">
+            <connections>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="481" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" wantsLayer="YES" misplaced="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="598" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="571-Pt-KVn">
+                        <rect key="frame" x="14" y="222" width="160" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="148" id="PEd-kd-QlV"/>
+                            <constraint firstAttribute="height" constant="21" id="eP8-zi-xsh"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="开始请求并生成文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xnc-rH-pdZ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5US-ad-xPV">
+                        <rect key="frame" x="18" y="204" width="571" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="此按钮用来请求接口并生成Model、request文件。" id="PKT-Kw-0KU">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-Bk-YB3">
+                        <rect key="frame" x="14" y="168" width="105" height="32"/>
+                        <buttonCell key="cell" type="push" title="生成Model" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YcF-zW-lcy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4jd-Ol-fpV">
+                        <rect key="frame" x="18" y="150" width="571" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="在现有json数据，不需请求的情况下，可直接把json串贴到‘Json’框里，点击此按钮生成Model。" id="0id-b6-ZYD">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M1I-g1-GLF">
+                        <rect key="frame" x="18" y="126" width="152" height="18"/>
+                        <buttonCell key="cell" type="check" title="是否生成Request文件" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RCn-XF-pZj">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="beU-b0-xL5">
+                        <rect key="frame" x="18" y="103" width="571" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="只有在使用‘全局Mock’的情况下才会生成Request文件。" id="rL3-pm-EEg">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7KH-0w-qoV">
+                        <rect key="frame" x="18" y="79" width="109" height="18"/>
+                        <buttonCell key="cell" type="check" title="全局mock模式" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cab-lc-9AM">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2da-09-HNv">
+                        <rect key="frame" x="18" y="39" width="571" height="34"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" id="lv9-5q-Ilw">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <string key="title">全局Mock按钮， 选中后会使用rap某个项目的url获取此项目(必需参数projectId)所有接口mock
+信息， 并选择其中一个进行生成文件。</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="571-Pt-KVn" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="8AW-n0-Z23"/>
+                    <constraint firstItem="beU-b0-xL5" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="8YD-JG-RDf"/>
+                    <constraint firstAttribute="trailing" secondItem="2da-09-HNv" secondAttribute="trailing" constant="20" id="GC7-Gn-8mF"/>
+                    <constraint firstItem="Z9h-Bk-YB3" firstAttribute="top" secondItem="5US-ad-xPV" secondAttribute="bottom" constant="8" id="GTs-M8-GHn"/>
+                    <constraint firstItem="7KH-0w-qoV" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="H8n-lo-fLf"/>
+                    <constraint firstAttribute="trailing" secondItem="beU-b0-xL5" secondAttribute="trailing" constant="20" id="MY1-7T-3rF"/>
+                    <constraint firstItem="5US-ad-xPV" firstAttribute="top" secondItem="571-Pt-KVn" secondAttribute="bottom" constant="8" id="Mbb-rS-HeJ"/>
+                    <constraint firstItem="571-Pt-KVn" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="Nhw-Fn-iVb"/>
+                    <constraint firstItem="M1I-g1-GLF" firstAttribute="top" secondItem="4jd-Ol-fpV" secondAttribute="bottom" constant="8" id="Nlt-pF-Ngj"/>
+                    <constraint firstAttribute="trailing" secondItem="4jd-Ol-fpV" secondAttribute="trailing" constant="20" id="PJM-Av-N5W"/>
+                    <constraint firstItem="Z9h-Bk-YB3" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="Qb0-ir-Xhw"/>
+                    <constraint firstItem="2da-09-HNv" firstAttribute="top" secondItem="7KH-0w-qoV" secondAttribute="bottom" constant="8" id="Xf0-RM-VgH"/>
+                    <constraint firstItem="M1I-g1-GLF" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="a2r-CT-iZe"/>
+                    <constraint firstItem="4jd-Ol-fpV" firstAttribute="top" secondItem="Z9h-Bk-YB3" secondAttribute="bottom" constant="8" id="geQ-hy-UIC"/>
+                    <constraint firstItem="7KH-0w-qoV" firstAttribute="top" secondItem="beU-b0-xL5" secondAttribute="bottom" constant="8" id="kQg-wP-Xr6"/>
+                    <constraint firstItem="4jd-Ol-fpV" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="lJL-aa-1oS"/>
+                    <constraint firstItem="beU-b0-xL5" firstAttribute="top" secondItem="M1I-g1-GLF" secondAttribute="bottom" constant="8" id="tR9-SQ-ZsM"/>
+                    <constraint firstItem="2da-09-HNv" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="tex-CI-qhb"/>
+                    <constraint firstItem="5US-ad-xPV" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="uPI-Ej-3NT"/>
+                    <constraint firstAttribute="trailing" secondItem="5US-ad-xPV" secondAttribute="trailing" constant="20" id="wVL-YF-pDE"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="357.5" y="126"/>
+        </window>
+    </objects>
+</document>
