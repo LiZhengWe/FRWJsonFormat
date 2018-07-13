@@ -16,16 +16,16 @@
 		8310F6AD20491F9200C882A7 /* FRWJsonFormatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8310F6AC20491F9200C882A7 /* FRWJsonFormatUITests.m */; };
 		8310F6BE2049212F00C882A7 /* FRWInputJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8310F6BC2049212F00C882A7 /* FRWInputJsonViewController.m */; };
 		8310F6BF2049212F00C882A7 /* FRWInputJsonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8310F6BD2049212F00C882A7 /* FRWInputJsonViewController.xib */; };
-		831419F820D20F5B004FC6C0 /* FRWChooseModelWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 831419F620D20F5B004FC6C0 /* FRWChooseModelWindow.m */; };
-		831419F920D20F5B004FC6C0 /* FRWChooseModelWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831419F720D20F5B004FC6C0 /* FRWChooseModelWindow.xib */; };
 		831419FC20D24A09004FC6C0 /* MockJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 831419FA20D24A09004FC6C0 /* MockJsonModel.m */; };
-		8318A65F205FB05200CB504C /* FRWDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318A65D205FB05200CB504C /* FRWDialogController.m */; };
-		8318A660205FB05200CB504C /* FRWDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8318A65E205FB05200CB504C /* FRWDialogController.xib */; };
-		832142C520DD0CE100285E52 /* FRWHelpWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832142C320DD0CE100285E52 /* FRWHelpWindowController.m */; };
-		832142C620DD0CE100285E52 /* FRWHelpWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832142C420DD0CE100285E52 /* FRWHelpWindowController.xib */; };
 		8326F92D20688A560024F5E1 /* FRWJsonFormatSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F92C20688A560024F5E1 /* FRWJsonFormatSetting.m */; };
 		8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F92F20688F010024F5E1 /* FRWJsonFormatManager.m */; };
 		8326F9332068927E0024F5E1 /* FRWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F9322068927E0024F5E1 /* FRWUtils.m */; };
+		832BAD4D20E635D0004182AE /* FRWChooseModelWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832BAD4420E635D0004182AE /* FRWChooseModelWindow.xib */; };
+		832BAD4E20E635D0004182AE /* FRWChooseModelWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 832BAD4620E635D0004182AE /* FRWChooseModelWindow.m */; };
+		832BAD4F20E635D0004182AE /* FRWDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832BAD4820E635D0004182AE /* FRWDialogController.xib */; };
+		832BAD5020E635D0004182AE /* FRWHelpWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832BAD4920E635D0004182AE /* FRWHelpWindowController.m */; };
+		832BAD5120E635D0004182AE /* FRWHelpWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832BAD4A20E635D0004182AE /* FRWHelpWindowController.xib */; };
+		832BAD5220E635D0004182AE /* FRWDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832BAD4B20E635D0004182AE /* FRWDialogController.m */; };
 		832FC8552069DDEA0082A73A /* FRWFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 832FC8542069DDEA0082A73A /* FRWFileManager.m */; };
 		833BDB1A20B407850085FC92 /* Mock.m in Sources */ = {isa = PBXBuildFile; fileRef = 833BDB1820B407840085FC92 /* Mock.m */; };
 		834668F620522A2800364EA1 /* FRWJsonParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 834668F520522A2800364EA1 /* FRWJsonParse.m */; };
@@ -75,17 +75,8 @@
 		8310F6BB2049212F00C882A7 /* FRWInputJsonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWInputJsonViewController.h; sourceTree = "<group>"; };
 		8310F6BC2049212F00C882A7 /* FRWInputJsonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWInputJsonViewController.m; sourceTree = "<group>"; };
 		8310F6BD2049212F00C882A7 /* FRWInputJsonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FRWInputJsonViewController.xib; sourceTree = "<group>"; };
-		831419F520D20F5B004FC6C0 /* FRWChooseModelWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWChooseModelWindow.h; sourceTree = "<group>"; };
-		831419F620D20F5B004FC6C0 /* FRWChooseModelWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWChooseModelWindow.m; sourceTree = "<group>"; };
-		831419F720D20F5B004FC6C0 /* FRWChooseModelWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FRWChooseModelWindow.xib; sourceTree = "<group>"; };
 		831419FA20D24A09004FC6C0 /* MockJsonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockJsonModel.m; sourceTree = "<group>"; };
 		831419FB20D24A09004FC6C0 /* MockJsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockJsonModel.h; sourceTree = "<group>"; };
-		8318A65C205FB05200CB504C /* FRWDialogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWDialogController.h; sourceTree = "<group>"; };
-		8318A65D205FB05200CB504C /* FRWDialogController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWDialogController.m; sourceTree = "<group>"; };
-		8318A65E205FB05200CB504C /* FRWDialogController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FRWDialogController.xib; sourceTree = "<group>"; };
-		832142C220DD0CE100285E52 /* FRWHelpWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWHelpWindowController.h; sourceTree = "<group>"; };
-		832142C320DD0CE100285E52 /* FRWHelpWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWHelpWindowController.m; sourceTree = "<group>"; };
-		832142C420DD0CE100285E52 /* FRWHelpWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FRWHelpWindowController.xib; sourceTree = "<group>"; };
 		8326F92B20688A560024F5E1 /* FRWJsonFormatSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonFormatSetting.h; sourceTree = "<group>"; };
 		8326F92C20688A560024F5E1 /* FRWJsonFormatSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWJsonFormatSetting.m; sourceTree = "<group>"; };
 		8326F92E20688F010024F5E1 /* FRWJsonFormatManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonFormatManager.h; sourceTree = "<group>"; };
@@ -93,6 +84,15 @@
 		8326F9312068927E0024F5E1 /* FRWUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWUtils.h; sourceTree = "<group>"; };
 		8326F9322068927E0024F5E1 /* FRWUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWUtils.m; sourceTree = "<group>"; };
 		8326F93820689E1E0024F5E1 /* FRWJsonFormat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FRWJsonFormat-Prefix.pch"; sourceTree = "<group>"; };
+		832BAD4420E635D0004182AE /* FRWChooseModelWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRWChooseModelWindow.xib; sourceTree = "<group>"; };
+		832BAD4520E635D0004182AE /* FRWHelpWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRWHelpWindowController.h; sourceTree = "<group>"; };
+		832BAD4620E635D0004182AE /* FRWChooseModelWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRWChooseModelWindow.m; sourceTree = "<group>"; };
+		832BAD4720E635D0004182AE /* FRWDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRWDialogController.h; sourceTree = "<group>"; };
+		832BAD4820E635D0004182AE /* FRWDialogController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRWDialogController.xib; sourceTree = "<group>"; };
+		832BAD4920E635D0004182AE /* FRWHelpWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRWHelpWindowController.m; sourceTree = "<group>"; };
+		832BAD4A20E635D0004182AE /* FRWHelpWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRWHelpWindowController.xib; sourceTree = "<group>"; };
+		832BAD4B20E635D0004182AE /* FRWDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRWDialogController.m; sourceTree = "<group>"; };
+		832BAD4C20E635D0004182AE /* FRWChooseModelWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRWChooseModelWindow.h; sourceTree = "<group>"; };
 		832FC8532069DDEA0082A73A /* FRWFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWFileManager.h; sourceTree = "<group>"; };
 		832FC8542069DDEA0082A73A /* FRWFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWFileManager.m; sourceTree = "<group>"; };
 		833BDB1820B407840085FC92 /* Mock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mock.m; sourceTree = "<group>"; };
@@ -181,6 +181,7 @@
 		8310F68920491F9100C882A7 /* FRWJsonFormat */ = {
 			isa = PBXGroup;
 			children = (
+				832BAD4320E635D0004182AE /* Window */,
 				8326F93420689B010024F5E1 /* Model */,
 				8326F92A20688A320024F5E1 /* Setting */,
 				83174F99206393EF00CAB771 /* Format */,
@@ -224,15 +225,6 @@
 				8310F6BB2049212F00C882A7 /* FRWInputJsonViewController.h */,
 				8310F6BC2049212F00C882A7 /* FRWInputJsonViewController.m */,
 				8310F6BD2049212F00C882A7 /* FRWInputJsonViewController.xib */,
-				8318A65C205FB05200CB504C /* FRWDialogController.h */,
-				8318A65D205FB05200CB504C /* FRWDialogController.m */,
-				8318A65E205FB05200CB504C /* FRWDialogController.xib */,
-				831419F520D20F5B004FC6C0 /* FRWChooseModelWindow.h */,
-				831419F620D20F5B004FC6C0 /* FRWChooseModelWindow.m */,
-				831419F720D20F5B004FC6C0 /* FRWChooseModelWindow.xib */,
-				832142C220DD0CE100285E52 /* FRWHelpWindowController.h */,
-				832142C320DD0CE100285E52 /* FRWHelpWindowController.m */,
-				832142C420DD0CE100285E52 /* FRWHelpWindowController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +262,22 @@
 				831419FA20D24A09004FC6C0 /* MockJsonModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		832BAD4320E635D0004182AE /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				832BAD4520E635D0004182AE /* FRWHelpWindowController.h */,
+				832BAD4920E635D0004182AE /* FRWHelpWindowController.m */,
+				832BAD4A20E635D0004182AE /* FRWHelpWindowController.xib */,
+				832BAD4C20E635D0004182AE /* FRWChooseModelWindow.h */,
+				832BAD4620E635D0004182AE /* FRWChooseModelWindow.m */,
+				832BAD4420E635D0004182AE /* FRWChooseModelWindow.xib */,
+				832BAD4720E635D0004182AE /* FRWDialogController.h */,
+				832BAD4B20E635D0004182AE /* FRWDialogController.m */,
+				832BAD4820E635D0004182AE /* FRWDialogController.xib */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 		834668F32052294600364EA1 /* Utils */ = {
@@ -406,12 +414,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832142C620DD0CE100285E52 /* FRWHelpWindowController.xib in Resources */,
+				832BAD5120E635D0004182AE /* FRWHelpWindowController.xib in Resources */,
 				8310F69120491F9100C882A7 /* Assets.xcassets in Resources */,
+				832BAD4F20E635D0004182AE /* FRWDialogController.xib in Resources */,
 				8310F69420491F9100C882A7 /* Main.storyboard in Resources */,
+				832BAD4D20E635D0004182AE /* FRWChooseModelWindow.xib in Resources */,
 				8310F6BF2049212F00C882A7 /* FRWInputJsonViewController.xib in Resources */,
-				831419F920D20F5B004FC6C0 /* FRWChooseModelWindow.xib in Resources */,
-				8318A660205FB05200CB504C /* FRWDialogController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				836E643D20E35C41009E86FE /* FRWFileContentFormat.m in Sources */,
+				832BAD4E20E635D0004182AE /* FRWChooseModelWindow.m in Sources */,
 				8310F68F20491F9100C882A7 /* ViewController.m in Sources */,
 				832FC8552069DDEA0082A73A /* FRWFileManager.m in Sources */,
 				836D7AEF20E2141A00631170 /* FRWStringFormat.m in Sources */,
@@ -495,16 +504,15 @@
 				834668F620522A2800364EA1 /* FRWJsonParse.m in Sources */,
 				836D7AF220E261AC00631170 /* FRWParseForFiles.m in Sources */,
 				8326F9332068927E0024F5E1 /* FRWUtils.m in Sources */,
+				832BAD5220E635D0004182AE /* FRWDialogController.m in Sources */,
 				839AB86C2073A31100C2DC5D /* FRWParameterModel.m in Sources */,
 				8310F69720491F9100C882A7 /* main.m in Sources */,
-				831419F820D20F5B004FC6C0 /* FRWChooseModelWindow.m in Sources */,
 				8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */,
-				8318A65F205FB05200CB504C /* FRWDialogController.m in Sources */,
 				8310F68C20491F9100C882A7 /* AppDelegate.m in Sources */,
 				839AB86F2073AFEC00C2DC5D /* HttpRequestTool.m in Sources */,
-				832142C520DD0CE100285E52 /* FRWHelpWindowController.m in Sources */,
 				833BDB1A20B407850085FC92 /* Mock.m in Sources */,
 				8310F6BE2049212F00C882A7 /* FRWInputJsonViewController.m in Sources */,
+				832BAD5020E635D0004182AE /* FRWHelpWindowController.m in Sources */,
 				831419FC20D24A09004FC6C0 /* MockJsonModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

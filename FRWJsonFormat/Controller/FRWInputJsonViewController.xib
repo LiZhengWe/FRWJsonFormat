@@ -247,7 +247,7 @@
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                         </buttonCell>
                         <connections>
-                            <action selector="preViewBtnClick:" target="-2" id="Go7-fC-cPC"/>
+                            <action selector="generateModelAction:" target="-2" id="1Ke-UZ-6uV"/>
                         </connections>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3GT-B4-4Ml">
