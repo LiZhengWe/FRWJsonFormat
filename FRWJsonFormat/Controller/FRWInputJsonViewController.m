@@ -22,6 +22,7 @@
 #import "FRWUtils.h"
 #import "FRWFileContentFormat.h"
 #import <YYModel/YYModel.h>
+#import "FRWLoadingView.h"
 
 @interface FRWInputJsonViewController ()<NSTabViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextDelegate>
 
@@ -334,9 +335,12 @@
 
 - (void)requestWithUrl:(NSString *)url isPost:(BOOL)isPost parameters:(NSDictionary *)params {
     
+    [FRWLoadingView showLoadingWithView:self.view];
     [HttpRequestTool beginRequestWithUrlString:url parameters:params requestType:isPost ? RequestTypePost : RequestTypeGet success:^(NSString *jsonStr) {
+        [FRWLoadingView hiddenLoading];
         [self refreshUI:jsonStr];
     } failure:^(NSError *error) {
+        [FRWLoadingView hiddenLoading];
     }];
 }
 

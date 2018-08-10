@@ -52,6 +52,7 @@ static id _instance;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.timeoutIntervalForRequest = 30;
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:requestTool delegateQueue:queue];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -79,6 +80,7 @@ static id _instance;
     request.HTTPBody = [postStr dataUsingEncoding:NSUTF8StringEncoding];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.timeoutIntervalForRequest = 30;
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:requestTool delegateQueue:queue];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
