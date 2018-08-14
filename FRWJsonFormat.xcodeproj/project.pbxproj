@@ -35,7 +35,7 @@
 		836D7AF220E261AC00631170 /* FRWParseForFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 836D7AF120E261AC00631170 /* FRWParseForFiles.m */; };
 		836E643D20E35C41009E86FE /* FRWFileContentFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 836E643C20E35C41009E86FE /* FRWFileContentFormat.m */; };
 		839AB86C2073A31100C2DC5D /* FRWParameterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839AB86B2073A31100C2DC5D /* FRWParameterModel.m */; };
-		839AB86F2073AFEC00C2DC5D /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 839AB86D2073AFEC00C2DC5D /* HttpRequestTool.m */; };
+		83AB8049212169B900548391 /* FRWHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB8048212169B900548391 /* FRWHttpTool.m */; };
 		C0C9A1EC58DC337EBF0DAC75 /* libPods-FRWJsonFormat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60740E31B2F8D02C2E543885 /* libPods-FRWJsonFormat.a */; };
 /* End PBXBuildFile section */
 
@@ -112,8 +112,8 @@
 		836E643C20E35C41009E86FE /* FRWFileContentFormat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWFileContentFormat.m; sourceTree = "<group>"; };
 		839AB86A2073A31100C2DC5D /* FRWParameterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWParameterModel.h; sourceTree = "<group>"; };
 		839AB86B2073A31100C2DC5D /* FRWParameterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWParameterModel.m; sourceTree = "<group>"; };
-		839AB86D2073AFEC00C2DC5D /* HttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestTool.m; sourceTree = "<group>"; };
-		839AB86E2073AFEC00C2DC5D /* HttpRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestTool.h; sourceTree = "<group>"; };
+		83AB8047212169B900548391 /* FRWHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWHttpTool.h; sourceTree = "<group>"; };
+		83AB8048212169B900548391 /* FRWHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWHttpTool.m; sourceTree = "<group>"; };
 		E2E3B47FE61EDE294BB0684C /* Pods-FRWJsonFormat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRWJsonFormat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FRWJsonFormat/Pods-FRWJsonFormat.debug.xcconfig"; sourceTree = "<group>"; };
 		F34AE8CF38079DA38735D84F /* Pods-FRWJsonFormat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRWJsonFormat.release.xcconfig"; path = "Pods/Target Support Files/Pods-FRWJsonFormat/Pods-FRWJsonFormat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,10 +305,10 @@
 				8326F9322068927E0024F5E1 /* FRWUtils.m */,
 				832FC8532069DDEA0082A73A /* FRWFileManager.h */,
 				832FC8542069DDEA0082A73A /* FRWFileManager.m */,
-				839AB86E2073AFEC00C2DC5D /* HttpRequestTool.h */,
-				839AB86D2073AFEC00C2DC5D /* HttpRequestTool.m */,
 				836D7AF020E261AC00631170 /* FRWParseForFiles.h */,
 				836D7AF120E261AC00631170 /* FRWParseForFiles.m */,
+				83AB8047212169B900548391 /* FRWHttpTool.h */,
+				83AB8048212169B900548391 /* FRWHttpTool.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +495,7 @@
 				836D7AEF20E2141A00631170 /* FRWStringFormat.m in Sources */,
 				8326F92D20688A560024F5E1 /* FRWJsonFormatSetting.m in Sources */,
 				834668F620522A2800364EA1 /* FRWJsonParse.m in Sources */,
+				83AB8049212169B900548391 /* FRWHttpTool.m in Sources */,
 				836D7AF220E261AC00631170 /* FRWParseForFiles.m in Sources */,
 				8326F9332068927E0024F5E1 /* FRWUtils.m in Sources */,
 				832BAD5220E635D0004182AE /* FRWDialogController.m in Sources */,
@@ -502,7 +503,6 @@
 				8310F69720491F9100C882A7 /* main.m in Sources */,
 				8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */,
 				8310F68C20491F9100C882A7 /* AppDelegate.m in Sources */,
-				839AB86F2073AFEC00C2DC5D /* HttpRequestTool.m in Sources */,
 				833BDB1A20B407850085FC92 /* Mock.m in Sources */,
 				8316753B211BE4720007A4DC /* FRWLoadingView.m in Sources */,
 				8310F6BE2049212F00C882A7 /* FRWInputJsonViewController.m in Sources */,

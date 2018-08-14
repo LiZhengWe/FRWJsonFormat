@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FRWHttpTool.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,7 @@
     self.window = [[NSApplication sharedApplication] keyWindow];
     [self.window.contentView addSubview:self.inputViewController.view];
     self.inputViewController.view.frame = self.window.contentView.bounds;
-    
+    [[FRWHttpTool shareTool] configureHttpEngineInitInfomations];
 }
 
 
