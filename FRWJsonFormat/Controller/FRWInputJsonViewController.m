@@ -12,7 +12,6 @@
 #import "FRWJsonFormatSetting.h"
 #import "FRWFileManager.h"
 #import "FRWParameterModel.h"
-#import "HttpRequestTool.h"
 #import "FRWChooseModelWindow.h"
 #import "Mock.h"
 #import "MockJsonModel.h"
@@ -23,6 +22,7 @@
 #import "FRWFileContentFormat.h"
 #import <YYModel/YYModel.h>
 #import "FRWLoadingView.h"
+#import "FRWHttpTool.h"
 
 @interface FRWInputJsonViewController ()<NSTabViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextDelegate>
 
@@ -40,6 +40,8 @@
 @property (weak) IBOutlet NSButton *requestFileBtn;
 //  帮助按钮
 @property (weak) IBOutlet NSButton *helpBtn;
+//  是否选择全部生成文件
+@property (weak) IBOutlet NSButton *allToFileBtn;
 // 保存参数模型数组
 @property (nonatomic,strong) NSMutableArray *dataArr;
 // 记录tableView中celld个数
@@ -289,10 +291,12 @@
         [self globalMockDataArr];
         [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
         [self.tableView reloadData];
- 
- 
+        self.requestFileBtn.enabled = YES;
+        self.allToFileBtn.enabled = YES;
     }
     else {
+        self.requestFileBtn.enabled = NO;
+        self.allToFileBtn.enabled = NO;
         self.rowCount = 1;
         self.selectedRow = -1;
         self.baseUrlTextField.stringValue = @"";
@@ -300,7 +304,10 @@
         [self clearDataArr];
         [self.tableView reloadData];
     }
+    self.requestFileBtn.state = sender.state;
+    self.allToFileBtn.state = sender.state;
 }
+
 
 - (IBAction)generateModelAction:(id)sender {
     
@@ -331,14 +338,21 @@
     }
 }
 
+- (IBAction)helpBtnClick:(id)sender {
+    FRWHelpWindowController *help = [[FRWHelpWindowController alloc] initWithWindowNibName:@"FRWHelpWindowController"];
+    [NSApp runModalForWindow:help.window];
+}
+
 #pragma mark - Request -
 
 - (void)requestWithUrl:(NSString *)url isPost:(BOOL)isPost parameters:(NSDictionary *)params {
     
     [FRWLoadingView showLoadingWithView:self.view];
-    [HttpRequestTool beginRequestWithUrlString:url parameters:params requestType:isPost ? RequestTypePost : RequestTypeGet success:^(NSString *jsonStr) {
+    [[FRWHttpTool shareTool] beginRequestWithUrlString:url parameters:params requestType:isPost? RequestTypePost : RequestTypeGet success:^(BOOL success, NSString *json) {
         [FRWLoadingView hiddenLoading];
-        [self refreshUI:jsonStr];
+        if (success) {
+            [self refreshUI:json];
+        }
     } failure:^(NSError *error) {
         [FRWLoadingView hiddenLoading];
     }];
@@ -375,12 +389,14 @@
                 self.mockSecondRequest = NO;
             }
             else {
+                
                 [self mockDataParse:data];
             }
         }
     });
 }
 
+// mock HTML数据解析 >>> 解析出某个或多个接口的 mock 请求链接后再请求
 - (void)mockDataParse:(id)data {
     
     Mock *mockdata = [Mock yy_modelWithJSON:data];
@@ -398,7 +414,10 @@
     }
     
     MockJsonModel *jsonModel = [MockJsonModel yy_modelWithDictionary:result];
-    
+    if (self.allToFileBtn.state == YES) {
+        
+        return;
+    }
     NSMutableArray *nameArr = @[].mutableCopy;
     for (moduleList *module in jsonModel.moduleList) {
         [nameArr addObject:module.name];

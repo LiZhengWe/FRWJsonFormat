@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FRWInputJsonViewController">
             <connections>
+                <outlet property="allToFileBtn" destination="V4u-fv-6zS" id="feH-Q6-TTX"/>
                 <outlet property="baseUrlTextField" destination="xS4-iX-uJX" id="UYS-Y5-3cQ"/>
                 <outlet property="globalMockBtn" destination="hX8-op-gdl" id="paf-uR-MhP"/>
                 <outlet property="helpBtn" destination="3GT-B4-4Ml" id="Wdj-Rm-EVQ"/>
@@ -22,7 +23,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="158" width="762" height="763"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="C7i-un-dfk">
                 <rect key="frame" x="0.0" y="0.0" width="762" height="763"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -158,7 +159,7 @@
                             <constraint firstAttribute="height" constant="176" id="Ks2-ol-oqk"/>
                             <constraint firstAttribute="width" constant="396" id="xHV-DP-Iw0"/>
                         </constraints>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="0rg-Mi-FTn">
+                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0rg-Mi-FTn">
                             <rect key="frame" x="1" y="159" width="394" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -225,7 +226,7 @@
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5A3-eK-mRf">
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5A3-eK-mRf">
                             <rect key="frame" x="379" y="1" width="16" height="445"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -271,6 +272,13 @@
                             <action selector="globalMockAction:" target="-2" id="e0a-sr-PGH"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V4u-fv-6zS">
+                        <rect key="frame" x="578" y="539" width="155" height="18"/>
+                        <buttonCell key="cell" type="check" title="是否选择全部生成文件" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ATo-bk-aQQ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hX8-op-gdl" firstAttribute="top" secondItem="CDQ-US-aCl" secondAttribute="bottom" constant="8" id="1EC-OA-KFm"/>
@@ -282,7 +290,9 @@
                     <constraint firstItem="xS4-iX-uJX" firstAttribute="leading" secondItem="NDS-wQ-Tow" secondAttribute="trailing" constant="8" id="Cz8-NO-e7e"/>
                     <constraint firstItem="CDQ-US-aCl" firstAttribute="leading" secondItem="xS4-iX-uJX" secondAttribute="trailing" constant="8" id="FPe-P9-4zd"/>
                     <constraint firstItem="TkD-ic-3bA" firstAttribute="leading" secondItem="C7i-un-dfk" secondAttribute="leading" constant="20" id="G4G-27-hVY"/>
+                    <constraint firstItem="V4u-fv-6zS" firstAttribute="leading" secondItem="KNw-lA-RTZ" secondAttribute="trailing" constant="8" id="Hpq-ib-Nhk"/>
                     <constraint firstItem="up9-eP-5P1" firstAttribute="leading" secondItem="C8U-IH-MI2" secondAttribute="trailing" constant="8" id="N5U-i7-hPA"/>
+                    <constraint firstItem="V4u-fv-6zS" firstAttribute="centerY" secondItem="KNw-lA-RTZ" secondAttribute="centerY" id="Pgz-Yt-Z54"/>
                     <constraint firstItem="Te8-cP-yYP" firstAttribute="centerY" secondItem="NLB-KN-wX7" secondAttribute="centerY" id="a6j-KP-OM6"/>
                     <constraint firstItem="C8U-IH-MI2" firstAttribute="top" secondItem="nMW-gr-q32" secondAttribute="bottom" constant="14" id="ahT-Vp-J3Q"/>
                     <constraint firstAttribute="trailing" secondItem="CDQ-US-aCl" secondAttribute="trailing" constant="14" id="c8m-Gy-zi3"/>
