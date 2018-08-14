@@ -42,14 +42,12 @@
     [superView addSubview:load];
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
-    [load addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200]];
-    [load addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100]];
+    [load addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:400]];
+    [load addConstraint:[NSLayoutConstraint constraintWithItem:load attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200]];
 }
 
 + (void)hiddenLoading {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [[FRWLoadingView loadView] removeFromSuperview];
-    });
+    [[FRWLoadingView loadView] removeFromSuperview];
 }
 
 - (NSImageView *)loadingImageView {
