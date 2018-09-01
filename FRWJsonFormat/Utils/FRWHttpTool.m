@@ -84,6 +84,34 @@
               }];
 }
 
+- (void)groupRequestWith:(NSArray<NSString *> *)paths params:(NSArray<NSDictionary *> *)parameters respondseObject:(void (^)(NSDictionary *))respondseObject {
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    for (int i = 0; i < paths.count; i++) {
+        
+        dispatch_group_enter(group);
+        [self getRequestWithPath:paths[i] params:parameters[i] success:^(BOOL success, NSString *json) {
+            if (success) {
+                [dic setObject:json forKey:paths[i]];
+            }
+            
+            dispatch_group_leave(group);
+        } failure:^(NSError *error) {
+            
+            [dic setObject:error forKey:paths[i]];
+            
+            dispatch_group_leave(group);
+        }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        !respondseObject?:respondseObject(dic);
+    });
+}
+
 + (AFHTTPSessionManager *)managerWithBaseUrl:(NSURL *)baseUrl {
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithBaseURL:baseUrl];
     return manager;

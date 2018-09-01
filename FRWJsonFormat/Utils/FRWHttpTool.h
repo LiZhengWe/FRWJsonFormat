@@ -60,6 +60,9 @@ typedef NS_ENUM(NSUInteger, RequestType) {
  */
 - (void)getRequestWithPath:(NSString *)path
                     params:(NSDictionary *)params
-                    success:(FRWSuccess)success
-                    failure:(FRWFailure)failure;
+                   success:(FRWSuccess)success
+                   failure:(FRWFailure)failure;
+
+- (void)groupRequestWith:(NSArray<NSString *> *)paths params:(NSArray<NSDictionary *> *)parameters respondseObject:(void(^)(NSDictionary *respondseDic))respondseObject;
+
 @end
