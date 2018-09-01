@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         self.classNameKey = classNameKey;
-        self.className = [className capitalizedString];
+        self.className = className;
         self.classDic = classDic;
     }
     return self;
