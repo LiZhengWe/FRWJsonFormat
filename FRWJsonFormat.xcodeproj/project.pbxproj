@@ -18,6 +18,7 @@
 		8310F6BF2049212F00C882A7 /* FRWInputJsonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8310F6BD2049212F00C882A7 /* FRWInputJsonViewController.xib */; };
 		831419FC20D24A09004FC6C0 /* MockJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 831419FA20D24A09004FC6C0 /* MockJsonModel.m */; };
 		8316753B211BE4720007A4DC /* FRWLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316753A211BE4720007A4DC /* FRWLoadingView.m */; };
+		8323CFF921244208008887EB /* FRWGroupRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8323CFF821244208008887EB /* FRWGroupRequestManager.m */; };
 		8326F92D20688A560024F5E1 /* FRWJsonFormatSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F92C20688A560024F5E1 /* FRWJsonFormatSetting.m */; };
 		8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F92F20688F010024F5E1 /* FRWJsonFormatManager.m */; };
 		8326F9332068927E0024F5E1 /* FRWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8326F9322068927E0024F5E1 /* FRWUtils.m */; };
@@ -81,6 +82,8 @@
 		831419FB20D24A09004FC6C0 /* MockJsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockJsonModel.h; sourceTree = "<group>"; };
 		83167539211BE4720007A4DC /* FRWLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWLoadingView.h; sourceTree = "<group>"; };
 		8316753A211BE4720007A4DC /* FRWLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWLoadingView.m; sourceTree = "<group>"; };
+		8323CFF721244208008887EB /* FRWGroupRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWGroupRequestManager.h; sourceTree = "<group>"; };
+		8323CFF821244208008887EB /* FRWGroupRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWGroupRequestManager.m; sourceTree = "<group>"; };
 		8326F92B20688A560024F5E1 /* FRWJsonFormatSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonFormatSetting.h; sourceTree = "<group>"; };
 		8326F92C20688A560024F5E1 /* FRWJsonFormatSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWJsonFormatSetting.m; sourceTree = "<group>"; };
 		8326F92E20688F010024F5E1 /* FRWJsonFormatManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonFormatManager.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				836D7AF120E261AC00631170 /* FRWParseForFiles.m */,
 				83AB8047212169B900548391 /* FRWHttpTool.h */,
 				83AB8048212169B900548391 /* FRWHttpTool.m */,
+				8323CFF721244208008887EB /* FRWGroupRequestManager.h */,
+				8323CFF821244208008887EB /* FRWGroupRequestManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				839AB86C2073A31100C2DC5D /* FRWParameterModel.m in Sources */,
 				8310F69720491F9100C882A7 /* main.m in Sources */,
 				8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */,
+				8323CFF921244208008887EB /* FRWGroupRequestManager.m in Sources */,
 				8310F68C20491F9100C882A7 /* AppDelegate.m in Sources */,
 				833BDB1A20B407850085FC92 /* Mock.m in Sources */,
 				8316753B211BE4720007A4DC /* FRWLoadingView.m in Sources */,
