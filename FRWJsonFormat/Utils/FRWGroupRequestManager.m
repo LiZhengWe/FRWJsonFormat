@@ -38,4 +38,30 @@
     return params;
 }
 
++ (NSDictionary *)requestParametersFromActionArray:(NSArray<actionList *> *)actionArr MockJsonModelId:(NSInteger)jsonModelId {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    NSMutableArray *urlArray = @[].mutableCopy;
+    NSMutableArray *paramArray = @[].mutableCopy;
+    
+    for (actionList *action in actionArr) {
+        NSString *url = action.requestUrl;
+        if (url.length > 1) {
+            if ([[action.requestUrl substringToIndex:1] isEqualToString:@"/"]) {
+                url = [url substringFromIndex:1];
+            }
+            url = [NSString stringWithFormat:@"http://mock.2dfire-daily.com/mock-serverapi/mockjsdata/%ld/%@", (long)jsonModelId,url];
+        }
+        else {
+            url = @"";
+        }
+        
+        [urlArray addObject:url];
+        [paramArray addObject:action.requestParameterList];
+    }
+    
+    [params setObject:urlArray forKey:FRWHttpGroupUrl];
+    [params setObject:paramArray forKey:FRWHttpGroupParameters];
+    return params;
+}
+
 @end

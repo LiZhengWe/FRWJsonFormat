@@ -17,4 +17,6 @@ static NSString *const FRWHttpGroupParameters = @"parameters";
 
 + (NSDictionary *)requestParametersFrom:(MockJsonModel *)jsonModel;
 
++ (NSDictionary *)requestParametersFromActionArray:(NSArray<actionList *> *)actionArr MockJsonModelId:(NSInteger)jsonModelId;
+
 @end

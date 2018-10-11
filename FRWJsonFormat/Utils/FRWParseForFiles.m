@@ -86,14 +86,14 @@
                 message = [NSString stringWithFormat:@"输入'%@' 对应的model:",key];
             }
             __block NSString *childClassName;//Record the current class name
-            [dialog dataWithMessage:message defaultClassName:key start:^(NSString *className) {
-                if (![className isEqualToString:key]) {
-                    self.replaceClassNames[key] = className;
-                }
-                childClassName = className;
-            }];
-            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[dialog window]];
+//            [dialog dataWithMessage:message defaultClassName:key start:^(NSString *className) {
+//                if (![key isEqualToString:key]) {
+//                    self.replaceClassNames[key] = key;
+//                }
+                childClassName = key;
+//            }];
+//            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
+//            [NSApp runModalForWindow:[dialog window]];
             //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 FRWJsonParse *childClassInfo = [[FRWJsonParse alloc] initWithClassNameKey:key className:childClassName classDic:obj];

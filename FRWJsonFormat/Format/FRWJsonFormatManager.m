@@ -17,7 +17,7 @@
     NSMutableString *resultStr = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-        [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
+        [resultStr appendFormat:@"\n%@",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
     }];
     return resultStr;
 }
@@ -58,7 +58,7 @@
         NSObject *firstObj = [array firstObject];
         if ([firstObj isKindOfClass:[NSDictionary class]]) {
             FRWJsonParse *childInfo = classInfo.propertyArrayDic[key];
-            genericTypeStr = [NSString stringWithFormat:@"<%@ *>",childInfo.className];
+            genericTypeStr = [NSString stringWithFormat:@"<%@ *>",[childInfo.className capitalizedString]];
         }else if ([firstObj isKindOfClass:[NSString class]]){
             genericTypeStr = @"<NSString *>";
         }else if ([firstObj isKindOfClass:[NSNumber class]]){
@@ -81,7 +81,7 @@
         if (!typeStr) {
             typeStr = [key capitalizedString];
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,[typeStr capitalizedString],key];
     }
     return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
 }
@@ -94,12 +94,12 @@
     NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
     NSMutableString *result = nil;
     if (superClassString && superClassString.length > 0) {
-        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
+        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n", [classInfo.className substringWithRange:NSMakeRange(0, 1)],superClassString];
     }else{
         result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
     }
     [result appendString:classInfo.propertyContent];
-    [result appendString:@"\n@end"];
+    [result appendString:@"\n@end\n"];
 
     if ([FRWJsonFormatSetting defaultSetting].outputToFiles) {
         //headerStr

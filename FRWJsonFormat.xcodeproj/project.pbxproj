@@ -32,6 +32,9 @@
 		833BDB1A20B407850085FC92 /* Mock.m in Sources */ = {isa = PBXBuildFile; fileRef = 833BDB1820B407840085FC92 /* Mock.m */; };
 		834668F620522A2800364EA1 /* FRWJsonParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 834668F520522A2800364EA1 /* FRWJsonParse.m */; };
 		835D37D4211994BB00E8FE9C /* load.gif in Resources */ = {isa = PBXBuildFile; fileRef = 835D37D3211994BB00E8FE9C /* load.gif */; };
+		835DE6E92154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 835DE6E72154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.m */; };
+		835DE6EA2154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835DE6E82154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.xib */; };
+		835DE6ED2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 835DE6EC2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.m */; };
 		836D7AEF20E2141A00631170 /* FRWStringFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 836D7AEE20E2141A00631170 /* FRWStringFormat.m */; };
 		836D7AF220E261AC00631170 /* FRWParseForFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 836D7AF120E261AC00631170 /* FRWParseForFiles.m */; };
 		836E643D20E35C41009E86FE /* FRWFileContentFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 836E643C20E35C41009E86FE /* FRWFileContentFormat.m */; };
@@ -107,6 +110,11 @@
 		834668F420522A2800364EA1 /* FRWJsonParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonParse.h; sourceTree = "<group>"; };
 		834668F520522A2800364EA1 /* FRWJsonParse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWJsonParse.m; sourceTree = "<group>"; };
 		835D37D3211994BB00E8FE9C /* load.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = load.gif; sourceTree = "<group>"; };
+		835DE6E62154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSAJsonFormatOptionalWindow.h; sourceTree = "<group>"; };
+		835DE6E72154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSAJsonFormatOptionalWindow.m; sourceTree = "<group>"; };
+		835DE6E82154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HSAJsonFormatOptionalWindow.xib; sourceTree = "<group>"; };
+		835DE6EB2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWJsonFormatOptionalLeftCell.h; sourceTree = "<group>"; };
+		835DE6EC2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWJsonFormatOptionalLeftCell.m; sourceTree = "<group>"; };
 		836D7AED20E2141A00631170 /* FRWStringFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWStringFormat.h; sourceTree = "<group>"; };
 		836D7AEE20E2141A00631170 /* FRWStringFormat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRWStringFormat.m; sourceTree = "<group>"; };
 		836D7AF020E261AC00631170 /* FRWParseForFiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRWParseForFiles.h; sourceTree = "<group>"; };
@@ -244,6 +252,8 @@
 			children = (
 				83167539211BE4720007A4DC /* FRWLoadingView.h */,
 				8316753A211BE4720007A4DC /* FRWLoadingView.m */,
+				835DE6EB2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.h */,
+				835DE6EC2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +305,9 @@
 				832BAD4720E635D0004182AE /* FRWDialogController.h */,
 				832BAD4B20E635D0004182AE /* FRWDialogController.m */,
 				832BAD4820E635D0004182AE /* FRWDialogController.xib */,
+				835DE6E62154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.h */,
+				835DE6E72154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.m */,
+				835DE6E82154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.xib */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -446,6 +459,7 @@
 				832BAD4F20E635D0004182AE /* FRWDialogController.xib in Resources */,
 				8310F69420491F9100C882A7 /* Main.storyboard in Resources */,
 				832BAD4D20E635D0004182AE /* FRWChooseModelWindow.xib in Resources */,
+				835DE6EA2154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.xib in Resources */,
 				8310F6BF2049212F00C882A7 /* FRWInputJsonViewController.xib in Resources */,
 				835D37D4211994BB00E8FE9C /* load.gif in Resources */,
 			);
@@ -498,6 +512,7 @@
 				8310F68F20491F9100C882A7 /* ViewController.m in Sources */,
 				832FC8552069DDEA0082A73A /* FRWFileManager.m in Sources */,
 				836D7AEF20E2141A00631170 /* FRWStringFormat.m in Sources */,
+				835DE6E92154E2D400A9B0E6 /* HSAJsonFormatOptionalWindow.m in Sources */,
 				8326F92D20688A560024F5E1 /* FRWJsonFormatSetting.m in Sources */,
 				834668F620522A2800364EA1 /* FRWJsonParse.m in Sources */,
 				83AB8049212169B900548391 /* FRWHttpTool.m in Sources */,
@@ -508,6 +523,7 @@
 				8310F69720491F9100C882A7 /* main.m in Sources */,
 				8326F93020688F010024F5E1 /* FRWJsonFormatManager.m in Sources */,
 				8323CFF921244208008887EB /* FRWGroupRequestManager.m in Sources */,
+				835DE6ED2154E38E00A9B0E6 /* FRWJsonFormatOptionalLeftCell.m in Sources */,
 				8310F68C20491F9100C882A7 /* AppDelegate.m in Sources */,
 				833BDB1A20B407850085FC92 /* Mock.m in Sources */,
 				8316753B211BE4720007A4DC /* FRWLoadingView.m in Sources */,

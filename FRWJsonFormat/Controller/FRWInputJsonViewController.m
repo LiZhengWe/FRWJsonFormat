@@ -23,6 +23,8 @@
 #import <YYModel/YYModel.h>
 #import "FRWLoadingView.h"
 #import "FRWHttpTool.h"
+#import "FRWGroupRequestManager.h"
+#import "HSAJsonFormatOptionalWindow.h"
 
 @interface FRWInputJsonViewController ()<NSTabViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextDelegate>
 
@@ -55,19 +57,23 @@
 // model.M文件
 @property (nonatomic, copy) NSString *modelMString;
 
-@property (nonatomic, assign) BOOL mockSecondRequest;
+@property (nonatomic, assign) BOOL createFileAble;
 
 @property (nonatomic, strong) actionList *currentActionList;
 
 @property (nonatomic, strong) FRWParseForFiles *parseFiles;
 
+@property (nonatomic, copy) void(^fileCreatComplete)(void);
+
 @end
 
-@implementation FRWInputJsonViewController
+@implementation FRWInputJsonViewController {
+    dispatch_group_t fileCreatGroup;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.mockSecondRequest = NO;
+    self.createFileAble = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     NSString *baseUrl = [[NSUserDefaults standardUserDefaults] valueForKey:@"BaseUrl"];
@@ -334,7 +340,7 @@
             }
         }];
         FRWJsonParse *jsonClass = [self.parseFiles handleClassWithResult:data];
-        [self outputResult:jsonClass];
+        [self creatFileWithResult:jsonClass];
     }
 }
 
@@ -351,49 +357,120 @@
     [[FRWHttpTool shareTool] beginRequestWithUrlString:url parameters:params requestType:isPost? RequestTypePost : RequestTypeGet success:^(BOOL success, NSString *json) {
         [FRWLoadingView hiddenLoading];
         if (success) {
-            [self refreshUI:json];
+            
+            id result = [self jsonIsValide:json];
+            if ([result isKindOfClass:[NSDictionary class]]) {
+                if (self.createFileAble || self.globalMockBtn.state != NSControlStateValueOn) {
+                    FRWJsonParse *jsonClass = [self.parseFiles handleClassWithResult:result];
+                    [self creatFileWithResult:jsonClass];
+                    self.createFileAble = NO;
+                }
+                else {
+                    [self mockDataParse:result];
+                }
+            }
         }
     } failure:^(NSError *error) {
         [FRWLoadingView hiddenLoading];
     }];
 }
 
-#pragma mark - UI Configure -
-- (void)refreshUI:(NSString *)jsonStr{
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (jsonStr.length < 1) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:@"返回数据为空！！！"];
-            [alert runModal];
-            return ;
-        }
-        weakSelf.jsonInputTxtView.string = jsonStr;
+- (void)groupRequstWithParams:(NSDictionary *)dictionary {
+    fileCreatGroup = dispatch_group_create();
+
+    [FRWLoadingView showLoadingWithView:self.view];
+    self.createFileAble = YES;
+    [[FRWHttpTool shareTool] groupRequestWith:dictionary[FRWHttpGroupUrl] params:dictionary[FRWHttpGroupParameters] respondseObject:^(NSDictionary *respondseDic) {
+        [FRWLoadingView hiddenLoading];
+        __weak typeof(self) wSelf = self;
         
-        id result = [FRWUtils dictionaryWithJson:jsonStr];
-        if ([result isKindOfClass:[NSError class]]) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:@"json 格式错误"];
-            [alert runModal];
-        }else{
-            __block id data = [NSDictionary dictionaryWithDictionary:result];
-            [result enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                if ([key isEqualToString:@"data"]) {
-                    data = obj;
-                    *stop = YES;
-                }
-            }];
-            if (self.mockSecondRequest || self.globalMockBtn.state != NSControlStateValueOn) {
-                FRWJsonParse *jsonClass = [self.parseFiles handleClassWithResult:data];
-                [self outputResult:jsonClass];
-                self.mockSecondRequest = NO;
+        for (NSString *key in respondseDic) {
+            if ([key isEqualToString:@""] || !respondseDic[key]) {
+                continue;
             }
-            else {
+            
+            id data = [wSelf checkDictionary:respondseDic[key]];
+            if ([data isKindOfClass:[NSDictionary class]]) {
+                if (self.createFileAble || self.globalMockBtn.state != NSControlStateValueOn) {
+                    //                    [wSelf refreshUI:data];
+                    dispatch_group_enter(fileCreatGroup);
+                    [wSelf creatFileWithDictionary:data complete:^{
+                        dispatch_group_leave(fileCreatGroup);
+                    }];
+                }
+                else {
+                    [wSelf mockDataParse:data];
+                }
                 
-                [self mockDataParse:data];
             }
         }
-    });
+        
+        dispatch_group_notify(fileCreatGroup, dispatch_get_main_queue(), ^{
+            self.createFileAble = NO;
+            [[NSWorkspace sharedWorkspace] openFile:[[NSUserDefaults standardUserDefaults] valueForKey:@"folderPath"]];
+        });
+    }];
+}
+
+#pragma mark - UI Configure -
+//- (void)refreshUI:(NSDictionary *)result {
+//
+//
+//    if (self.createFileAble || self.globalMockBtn.state != NSControlStateValueOn) {
+//        FRWJsonParse *jsonClass = [self.parseFiles handleClassWithResult:result];
+//        [self outputResult:jsonClass];
+//        self.createFileAble = NO;
+//    }
+//    else {
+//
+//        [self mockDataParse:result];
+//    }
+//}
+
+- (id)checkDictionary:(id)dic {
+    id result = [self jsonIsValide:dic];
+    __block id data = [NSDictionary dictionaryWithDictionary:result];
+    [result enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj2, BOOL * _Nonnull stop) {
+        if ([key isEqualToString:@"data"]) {
+            data = obj2;
+            *stop = YES;
+        }
+    }];
+    
+    return data;
+}
+
+- (NSDictionary *)jsonIsValide:(NSString *)jsonStr {
+    if (jsonStr.length < 1) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"返回数据为空！！！"];
+        [alert runModal];
+        return nil;
+    }
+    
+    self.jsonInputTxtView.string = jsonStr;
+    
+    id result = [FRWUtils dictionaryWithJson:jsonStr];
+    if ([result isKindOfClass:[NSError class]]) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"json 格式错误"];
+        [alert runModal];
+        return nil;
+    }
+    
+    return result;
+}
+
+- (void)creatFileWithDictionary:(NSDictionary *)dictionary complete:(void(^)(void))complete {
+    
+    self.fileCreatComplete = complete;
+    
+    if (!dictionary || !dictionary.count) {
+        complete();
+        return;
+    }
+    FRWJsonParse *jsonClass = [self.parseFiles handleClassWithResult:dictionary];
+    [self creatFileWithResult:jsonClass];
 }
 
 // mock HTML数据解析 >>> 解析出某个或多个接口的 mock 请求链接后再请求
@@ -416,8 +493,23 @@
     MockJsonModel *jsonModel = [MockJsonModel yy_modelWithDictionary:result];
     if (self.allToFileBtn.state == YES) {
         
+        HSAJsonFormatOptionalWindow *optionalWindow = [[HSAJsonFormatOptionalWindow alloc] initWithWindowNibName:@"HSAJsonFormatOptionalWindow"];
+        optionalWindow.jsonModel = jsonModel;
+        optionalWindow.selectBlock = ^(NSArray * _Nonnull selectRequest) {
+            if (selectRequest.count > 0) {
+                [self groupRequstWithParams:[FRWGroupRequestManager requestParametersFromActionArray:selectRequest MockJsonModelId:jsonModel.ID]];
+            }
+            else {
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert setMessageText:@"没有选择任何请求！"];
+                [alert runModal];
+            }
+        };
+        [NSApp runModalForWindow:optionalWindow.window];
+        
         return;
     }
+    
     NSMutableArray *nameArr = @[].mutableCopy;
     for (moduleList *module in jsonModel.moduleList) {
         [nameArr addObject:module.name];
@@ -467,7 +559,7 @@
         NSDictionary *params = [weakSelf getParamsDicFromDataArr:weakSelf.dataArr];
         NSString *projectId = params[@"projectId"];
         NSString *url = [NSString stringWithFormat:@"http://mock.2dfire-daily.com/mock-serverapi/mockjsdata/%@/%@", projectId,weakSelf.currentActionList.requestUrl];
-        self.mockSecondRequest = YES;
+        self.createFileAble = YES;
         [weakSelf requestWithUrl:url isPost:weakSelf.isPost parameters:@{}];
     };
     
@@ -475,7 +567,20 @@
 }
 
 #pragma mark - Creat File -
-- (void)outputResult:(FRWJsonParse *)classInfo {
+//- (void)outputResult:(FRWJsonParse *)classInfo {
+//
+//    NSString *mContent = [NSString stringWithFormat:@"%@\n%@", classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
+//
+//    self.modelMString = mContent;
+//
+//    self.modelHString = [[classInfo.classContent stringByAppendingString:[NSString stringWithFormat:@"\n%@",classInfo.classContentForH]] stringByAppendingString:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForH]];
+//
+//    [self creatFile];
+//
+//}
+
+// 生成文件
+- (void)creatFileWithResult:(FRWJsonParse *)classInfo {
     
     NSString *mContent = [NSString stringWithFormat:@"%@\n%@", classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
     
@@ -483,18 +588,11 @@
     
     self.modelHString = [[classInfo.classContent stringByAppendingString:[NSString stringWithFormat:@"\n%@",classInfo.classContentForH]] stringByAppendingString:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForH]];
     
-    [self creatFile];
-    
-}
-
-// 生成文件
-- (void)creatFile {
     NSString *folderPath = [[NSUserDefaults standardUserDefaults] valueForKey:@"folderPath"];
     NSString *hName = [NSString stringWithFormat:@"%@.h",self.parseFiles.modelName];
     NSString *mName = [NSString stringWithFormat:@"%@.m",self.parseFiles.modelName];
     if (folderPath) {
         [[FRWFileManager sharedInstance] handlePath:folderPath hFileName:hName mFileName:mName hContent:self.modelHString mContent:self.modelMString isRequestFile:NO];
-        [[NSWorkspace sharedWorkspace] openFile:folderPath];
     }else{
         
         NSOpenPanel *panel = [NSOpenPanel openPanel];
@@ -509,7 +607,6 @@
             [[NSUserDefaults standardUserDefaults] setValue:folderPath forKey:@"folderPath"];
             
             [[FRWFileManager sharedInstance] handlePath:folderPath hFileName:hName mFileName:mName hContent:self.modelHString mContent:self.modelMString isRequestFile:NO];
-            [[NSWorkspace sharedWorkspace] openFile:folderPath];
         }
         else if ([panel runModal] == NSModalResponseCancel) {
             NSAlert *alert = [[NSAlert alloc] init];
@@ -524,9 +621,9 @@
     
     if (self.requestFileBtn.state == NSControlStateValueOn) {
         if (!self.currentActionList && self.globalMockBtn.state == NSControlStateValueOn) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:@"请重新请求， 并且选择其中一个需要生成的选项"];
-            [alert runModal];
+//            NSAlert *alert = [[NSAlert alloc] init];
+//            [alert setMessageText:@"请重新请求， 并且选择其中一个需要生成的选项"];
+//            [alert runModal];
             return;
         }
         NSString *urlPath = self.globalMockBtn.state == NSControlStateValueOn ? [FRWStringFormat urlFromOriginalUrl:self.currentActionList.requestUrl] : [FRWStringFormat urlFromOriginalUrl:self.baseUrlTextField.stringValue];
@@ -534,7 +631,11 @@
         [FRWFileContentFormat shareInstance].urlPath = urlPath;
         [FRWFileContentFormat shareInstance].dataArr = self.dataArr;
         [[FRWFileContentFormat shareInstance] creatRequestFile];
+        
     }
+    
+    !self.fileCreatComplete?:self.fileCreatComplete();
+    
 }
 
 #pragma mark - Private Method -

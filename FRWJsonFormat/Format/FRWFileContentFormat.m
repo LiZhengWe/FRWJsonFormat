@@ -52,7 +52,7 @@
     if (folderPath) {
         
         [[FRWFileManager sharedInstance] handlePath:folderPath hFileName:requestHClassName mFileName:requestMClassName hContent:[self requestClassHContent] mContent:[self requestClassMContent] isRequestFile:YES];
-        [[NSWorkspace sharedWorkspace] openFile:folderPath];
+//        [[NSWorkspace sharedWorkspace] openFile:folderPath];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"creatFileSuccess" object:nil];
     }else{
         
@@ -68,7 +68,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"folderPath"];
             
             [[FRWFileManager sharedInstance] handlePath:folderPath hFileName:requestHClassName mFileName:requestMClassName hContent:[self requestClassHContent] mContent:[self requestClassMContent] isRequestFile:YES];
-            [[NSWorkspace sharedWorkspace] openFile:folderPath];
+//            [[NSWorkspace sharedWorkspace] openFile:folderPath];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"creatFileSuccess" object:nil];
         }
         else if ([panel runModal] == NSModalResponseCancel) {
